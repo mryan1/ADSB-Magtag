@@ -14,7 +14,7 @@ try:
 except ImportError:
     print("WiFi secrets are kept in secrets.py, please add them there!")
     raise
-
+ 
 print("Connecting to %s"%secrets["ssid"])
 wifi.radio.connect(secrets["ssid"], secrets["password"])
 print("Connected to %s!"%secrets["ssid"])
@@ -43,9 +43,11 @@ for x in range(numOfPlanefenceDisplayItems):
 
 while True:
     pl = getPlanefenceList()
-    for i in range(numOfPlanefenceDisplayItems):
-        li = i + 1
-        magtag.set_text(pl[len(pl)- li][1] + " " + pl[len(pl)-li][3] + " " + pl[len(pl)-li][2], index=i, auto_refresh=False)
-
+    for i in range(1, numOfPlanefenceDisplayItems):
+        if i <= len(pl):
+            magtag.set_text(pl[len(pl)- i][1] + " " + pl[len(pl)-i][3] + " " + pl[len(pl)-i][2], index=i, auto_refresh=False)
+ 
     magtag.refresh()
-    magtag.exit_and_deep_sleep(60 * 5)
+    #magtag.exit_and_deep_sleep(60 * 5)
+    magtag.enter_light_sleep(60) 
+ 
