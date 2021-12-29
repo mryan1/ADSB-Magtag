@@ -44,10 +44,12 @@ for x in range(numOfPlanefenceDisplayItems):
 while True:
     pl = getPlanefenceList()
     for i in range(1, numOfPlanefenceDisplayItems):
-        if i <= len(pl):
+        if i <= len(pl) and len(pl) > 0:
             magtag.set_text(pl[len(pl)- i][1] + " " + pl[len(pl)-i][3] + " " + pl[len(pl)-i][2], index=i, auto_refresh=False)
+        else:
+            magtag.set_text("No interesting planes from Planefence.")
  
     magtag.refresh()
-    #magtag.exit_and_deep_sleep(60 * 5)
-    magtag.enter_light_sleep(60) 
+    magtag.exit_and_deep_sleep(60 * 10)
+    #magtag.enter_light_sleep(60) 
  

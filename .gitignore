@@ -1,1 +1,7 @@
 secrets.py
+lib/*
+boot_out.txt
+.fseventsd/fseventsd-uuid
+.vscode/settings.json
+.Trashes
+.metadata_never_index
